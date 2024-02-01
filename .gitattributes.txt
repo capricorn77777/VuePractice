@@ -1,0 +1,14 @@
+# .gitattributes\
+
+# Set default behavior to automatically normalize line endings.
+* text=auto eol=lf
+
+# Specify files to be treated as binary.
+*.jpg binary
+*.png binary
+*.gif binary
+
+# Specify files to be treated as text with LF line endings.
+*.txt text eol=lf
+*.md text eol=lf
+この例では、* text=auto はテキストファイルの改行を自動的に調整すると指

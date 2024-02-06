@@ -3,6 +3,9 @@ import {ref} from "vue"
 
 const url = ref("https://vuejs.org");
 const isSendButtonDisabled = ref(true);
+
+const widthOrHeight = ref("height");
+const widthOrHeightVaalue = ref(100);
 </script>
 
 <template>
@@ -10,4 +13,5 @@ const isSendButtonDisabled = ref(true);
   <p><a :href="url" target="_blank">Vue.jsのサイト</a></p>
   <p><a v-bind:href="url + 'guide/introduction.html'" target="_blank">Vue.jsガイドのページ</a></p>
   <p><button type="button" v-bind:disabled="isSendButtonDisabled">送信</button></p>
+  <p><img alt="vueLogo" src="./assets/logo.svg" v-bind:[widthOrHeight]="widthOrHeightValue"></p>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref} from "vue"
+import {ref, computed} from "vue"
 
 const url = ref("https://vuejs.org");
 const isSendButtonDisabled = ref(true);
@@ -13,15 +13,60 @@ const imgAttributes = ref({
   width: 75,
   height: 75
 })
+
+const msg = ref("こんにちは！世界");
+const msgTextRed = ref("red");
+const msgTextColor = ref("white");
+const msgBgColor = ref("black");
+const msgStyles = ref({
+  color: "white",
+  backgroundColor: "black"
+});
+const msgStyles2 = ref({
+  fontSize: "24pt",
+});
+const msgStyles3 = ref({
+  color: "pink",
+  fontSize: "24pt",
+});
+const textSize = computed(
+  (): string => {
+    const size = Math.round(Math.random() * 25) + 10;
+    return '${size}pt';
+  }
+);
 </script>
 
 <template>
-  <p><a v-bind:href="url" target="_blank">Vue.jsのサイト</a></p>
-  <p><a :href="url" target="_blank">Vue.jsのサイト</a></p>
-  <p><a v-bind:href="url + 'guide/introduction.html'" target="_blank">Vue.jsガイドのページ</a></p>
-  <p><button type="button" v-bind:disabled="isSendButtonDisabled">送信</button></p>
-  <p><img alt="vueLogo" src="./assets/logo.svg" v-bind:[widthOrHeight]="widthOrHeightValue"></p>
-  <p><img v-bind="imgAttributes"></p>
-  <p><img v-bind="imgAttributes" title="ロゴです"></p>
-  <p><img v-bind="imgAttributes" alt="ロゴです"></p>
+  
+  <div>
+  <p v-bind:style="{color: msgTextRed}">
+    {{ msg }}
+  </p>
+  <p v-bind:style="{color: 'pink'}">
+    {{ msg }}
+  </p>
+  <p v-bind:style="{fontSize: textSize}">
+    {{ msg }}
+  </p>
+  <p v-bind:style="{color: msgTextColor, backgroundColor: msgBgColor}">
+    {{ msg }}
+  </p>
+  <p v-bind:style="{color: msgTextColor, 'background-Color': msgBgColor}">
+    {{ msg }}
+  </p>
+  <p v-bind:style="msgStyles">
+    {{ msg }}
+  </p>
+  <p v-bind:style="[msgStyles, msgStyles2]">
+    {{ msg }}
+  </p>
+  <p v-bind:style="[msgStyles, msgStyles3]">
+    {{ msg }}
+  </p>
+  <p v-bind:style="[msgStyles3, msgStyles]">
+    {{ msg }}
+  </p>
+  </div>
+
 </template>

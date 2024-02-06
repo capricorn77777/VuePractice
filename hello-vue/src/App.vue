@@ -6,6 +6,13 @@ const isSendButtonDisabled = ref(true);
 
 const widthOrHeight = ref("height");
 const widthOrHeightVaalue = ref(100);
+
+const imgAttributes = ref({
+  src: "/images/logo.svg",
+  alt: "Vueのロゴ",
+  width: 75,
+  height: 75
+})
 </script>
 
 <template>
@@ -14,4 +21,7 @@ const widthOrHeightVaalue = ref(100);
   <p><a v-bind:href="url + 'guide/introduction.html'" target="_blank">Vue.jsガイドのページ</a></p>
   <p><button type="button" v-bind:disabled="isSendButtonDisabled">送信</button></p>
   <p><img alt="vueLogo" src="./assets/logo.svg" v-bind:[widthOrHeight]="widthOrHeightValue"></p>
+  <p><img v-bind="imgAttributes"></p>
+  <p><img v-bind="imgAttributes" title="ロゴです"></p>
+  <p><img v-bind="imgAttributes" alt="ロゴです"></p>
 </template>

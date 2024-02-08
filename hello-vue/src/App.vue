@@ -1,27 +1,16 @@
 <script setup lang="ts">
-import {reactive, computed} from "vue"
+import {ref} from "vue"
 
-const data = reactive({
-  PI: 3.14,
-  radius: Math.round(Math.random() *10)
-});
-const area = computed(
-  (): number => {
-    return data.radius * data.radius * data.PI;
-  }
-);
-
-setInterval(
-  ():void => {
-    data.radius = Math.round(Math.random() * 10);
-  },
-  1000
-);
+const randValue = ref("まだです");
+const onButtonClick = ():void => {
+  const rand = Math.round(Math.random() *10);
+  randValue.value = String(rand);
+};
 </script>
 
 <template>
-  
-  
-  <p>{{ data.radius }}を{{ data.PI }}で計算すると{{ area }}になる</p>
-
+   <section>
+      <button v-on:click="onButtonClick">クリック</button>
+      <p>結果： {{randValue}}</p>
+   </section>
 </template>

@@ -1,72 +1,25 @@
 <script setup lang="ts">
 import {ref, computed} from "vue"
 
-const url = ref("https://vuejs.org");
-const isSendButtonDisabled = ref(true);
-
-const widthOrHeight = ref("height");
-const widthOrHeightVaalue = ref(100);
-
-const imgAttributes = ref({
-  src: "/images/logo.svg",
-  alt: "Vueのロゴ",
-  width: 75,
-  height: 75
-})
-
-const msg = ref("こんにちは！世界");
-const msgTextRed = ref("red");
-const msgTextColor = ref("white");
-const msgBgColor = ref("black");
-const msgStyles = ref({
-  color: "white",
-  backgroundColor: "black"
-});
-const msgStyles2 = ref({
-  fontSize: "24pt",
-});
-const msgStyles3 = ref({
-  color: "pink",
-  fontSize: "24pt",
-});
-const textSize = computed(
-  (): string => {
-    const size = Math.round(Math.random() * 25) + 10;
-    return '${size}pt';
+const radiusInit = Math.round(Math.random() *10);
+const PI = ref(3.14);
+const radius = ref(radiusInit);
+const area = computed(
+  (): number => {
+    return radius.value * radius.value * PI.value;
   }
+);
+setInterval(
+  ():void => {
+    radius.value = Math.round(Math.random() * 10);
+  },
+  1000
 );
 </script>
 
 <template>
   
-  <div>
-  <p v-bind:style="{color: msgTextRed}">
-    {{ msg }}
-  </p>
-  <p v-bind:style="{color: 'pink'}">
-    {{ msg }}
-  </p>
-  <p v-bind:style="{fontSize: textSize}">
-    {{ msg }}
-  </p>
-  <p v-bind:style="{color: msgTextColor, backgroundColor: msgBgColor}">
-    {{ msg }}
-  </p>
-  <p v-bind:style="{color: msgTextColor, 'background-Color': msgBgColor}">
-    {{ msg }}
-  </p>
-  <p v-bind:style="msgStyles">
-    {{ msg }}
-  </p>
-  <p v-bind:style="[msgStyles, msgStyles2]">
-    {{ msg }}
-  </p>
-  <p v-bind:style="[msgStyles, msgStyles3]">
-    {{ msg }}
-  </p>
-  <p v-bind:style="[msgStyles3, msgStyles]">
-    {{ msg }}
-  </p>
-  </div>
+  
+  <p>{{ radius }}を{{ PI }}で計算すると{{ area }}</p>
 
 </template>

@@ -1,17 +1,7 @@
 <script setup lang="ts">
 import {ref} from "vue"
 
-const randValue = ref("まだです");
-const onButtonClick = ():void => {
-  const rand = Math.round(Math.random() *10);
-  randValue.value = String(rand);
-};
-const mousePointerX = ref(0);
-const mousePointerY = ref(0);
-const onImgMousemove = (event: MouseEvent): void =>{
-  mousePointerX.value = event.offsetX;
-  mousePointerY.value = event.offsetY;
-};
+const pBgColor = ref("white");
 </script>
 
 <template>

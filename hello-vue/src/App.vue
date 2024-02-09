@@ -2,11 +2,15 @@
 import {ref} from "vue"
 
 const pBgColor = ref("white");
+const onPClick = (bgColor: string): void => {
+  pBgColor.value = bgColor;
+};
 </script>
 
 <template>
    <section>
-      <img src="./assets/logo.svg" alt="Vueのロゴ" width="200" v-on:mousemove="onImgMousemove">
-      <p>ポインタの位置： x={{ mousePointerX }}; y={{ mousePointerY }}</p>
+      <p v-on:click="onPClick('red')" v-bind:style="{backgroundColor: pBgColor}">
+      ここをクリックすると背景色が変わります
+      </p>
    </section>
 </template>

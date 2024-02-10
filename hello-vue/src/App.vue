@@ -2,7 +2,7 @@
 import {ref} from "vue"
 
 const msg = ref("まだです");
-const onEntryKey = (): void => {
+const onEnterKey = (): void => {
   msg.value = "エンターキーが押下されました";
 };
 const onRightButtonClick = (): void => {
@@ -14,11 +14,8 @@ const onShiftClick = (): void => {
 </script>
 
 <template>
-   <section>
       <p>{{ msg }}</p>
-      <input type="text" v-on: keydown.enter="onEnterKey"><br>
+      <input type="text" v-on:keydown.enter="onEnterKey"><br>
       <button v-on:click.right="onRightButtonClick">右クリック</button><br>
-      <button v-on:click.shift="onShiftClick">シフトを押しながら右クリック</button><br>
-    
-   </section>
+      <button v-on:click.shift="onShiftClick">シフトを押しながらクリック</button><br>
 </template>

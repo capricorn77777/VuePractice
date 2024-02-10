@@ -15,10 +15,10 @@ const onShiftClick = (): void => {
 
 <template>
    <section>
-      <form action="#" v-on:submit="onFormSubmit">
-      <input type="text" required>
-      <button type="submit">送信</button>
-    </form>
-    <p>{{ msg }}</p>
+      <p>{{ msg }}</p>
+      <input type="text" v-on: keydown.enter="onEnterKey"><br>
+      <button v-on:click.right="onRightButtonClick">右クリック</button><br>
+      <button v-on:click.shift="onShiftClick">シフトを押しながら右クリック</button><br>
+    
    </section>
 </template>

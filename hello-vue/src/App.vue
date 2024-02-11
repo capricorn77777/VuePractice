@@ -22,8 +22,12 @@ const onInputName = (event: Event): void => {
 </script>
 
 <template>
-      <p>{{ msg }}</p>
-      <input type="text" v-on:keydown.enter="onEnterKey"><br>
+  <section>
+      <input type="text" v-bind:value="inputNameBind"><br>
+  </section>
+  <section>
+      <input type="text" v-on:input="onInputName"><br>
       <button v-on:click.right="onRightButtonClick">右クリック</button><br>
-      <button v-on:click.shift="onShiftClick">シフトを押しながらクリック</button><br>
+      <p>{{ inputNameOn }}</p>
+  </section>
 </template>

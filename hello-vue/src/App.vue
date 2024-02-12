@@ -23,7 +23,10 @@ const selectedOSSelect = ref([]);
   </section>
   <br>
   <section>
-      <input type="text" v-on:input="onInputName"><br>
-      <p>{{ inputNameOn }}</p>
+      <select v-model="memberTypeSelect">
+        <option value="1">通常会員</option>
+        <option value="2">通常会員</option>
+        <option value="3">通常会員</option>
+      </select>
   </section>
 </template>

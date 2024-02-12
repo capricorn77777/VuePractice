@@ -25,8 +25,28 @@ const selectedOSSelect = ref([]);
   <section>
       <select v-model="memberTypeSelect">
         <option value="1">通常会員</option>
-        <option value="2">通常会員</option>
-        <option value="3">通常会員</option>
+        <option value="2">特別会員</option>
+        <option value="3">優良会員</option>
       </select>
+      <br>
+      <p>選択されたリスト: {{ memberTypeSelect }}</p>
   </section>
+  <br>
+  <section>
+    <label><input type="checkbox" v-model="isAgreed">同意する</label>
+    <p>同意の結果: {{ isAgreed }}</p>
+  </section>
+  <section>
+    <label><input type="checkbox" v-model="isAgreed01" true-value="1" false-value="0">同意する</label>
+    <p>同意の結果: {{ isAgreed01 }}</p>
+  </section>
+  <section>
+    <label><input type="checkbox" v-model="selectedOS" value="1">macOS</label>
+    <label><input type="checkbox" v-model="selectedOS" value="2">windows</label>
+    <label><input type="checkbox" v-model="selectedOS" value="3">Linux</label>
+    <label><input type="checkbox" v-model="selectedOS" value="4">ios</label>
+    <label><input type="checkbox" v-model="selectedOS" value="5">Android</label>
+    <p>選択されたOS: {{ selectedOS }}</p>
+  </section>
+
 </template>

@@ -12,9 +12,14 @@ const selectedOSSelect = ref([]);
 </script>
 
 <template>
-  <Ap
+  <textarea v-model="inputTextarea"></textarea>
+  <br>
   <section>
-      <input type="text" v-bind:value="inputNameBind"><br>
+      <label><input type="radio" name="memberType" value="1" v-model="memberType">通常会員</label>
+      <label><input type="radio" name="memberType" value="2" v-model="memberType">特別会員</label>
+      <label><input type="radio" name="memberType" value="3" v-model="memberType">優良会員</label>
+      <br>
+      <p>選択されたラヂオボタン: {{ memberType }}</p>
   </section>
   <br>
   <section>

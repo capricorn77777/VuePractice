@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import {ref} from "vue"
 
-const inputNameBind = ref("しんちゃん");
-const inputNameOn = ref('ななし');
+const inputTextarea = ref("テキストエリアへの入力文字");
+const memberType = ref(1);
+const memberTypeSelect = ref(1);
 const onInputName = (event: Event): void => {
   const element = event.target as HTMLInputElement;
   inputNameOn.value = element.value;
